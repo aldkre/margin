@@ -35,8 +35,6 @@ def create_table_from_zakup_netto(zakup_netto, VAT, marza):
                 'cena brutto': round(zakup_netto*(1 + VAT) / (1 - marza), 2),
                 'cena netto': round((zakup_netto*(1 + VAT)/(1 - marza)) / (1 + VAT), 2)})
 
-# def print_table_zakup_netto():
-#     st.table(create_table_from_zakup_netto(zakup_netto= st.session_state.zakup_netto_value, VAT=st.session_state.VAT/100, marza=st.session_state.marza_value/100))
 
 def print_table_zakup_netto():
     temp_data = create_table_from_zakup_netto(zakup_netto= st.session_state.zakup_netto_value, VAT=st.session_state.VAT/100, marza=st.session_state.marza_value/100)
@@ -226,6 +224,6 @@ with zakup_netto:
 with zakup_brutto:
     zakup_brutto = st.number_input("Wprowadź cenę zakupu brutto", step=0.01, key='zakup_brutto_value', on_change=print_table_zakup_brutto)
 with marza:
-    marza = st.number_input("Wprowadź marżę brutto", step=0.01, value=10., key='marza_value', on_change=print_table_marza)
+    marza = st.number_input("Wprowadź marżę brutto", step=0.01, value=50., key='marza_value', on_change=print_table_marza)
 with cena_brutto:
     cena_brutto = st.number_input("Wprowadź cenę sprzedaży brutto", step=0.01, key='cena_brutto_value', on_change=print_table_cena_brutto)
