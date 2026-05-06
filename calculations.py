@@ -6,7 +6,7 @@ def calculate_values(zakup_netto=None, zakup_brutto=None, cena_brutto=None, VAT=
     elif zakup_brutto is not None:
         zakup_netto = zakup_brutto / (1 + VAT)
     elif cena_brutto is not None:
-        zakup_brutto = -(marza * cena_brutto - cena_brutto)
+        zakup_brutto = cena_brutto * (1 - marza)
         zakup_netto = zakup_brutto / (1 + VAT)
 
     cena_netto = zakup_brutto / (1 - marza) / (1 + VAT)
